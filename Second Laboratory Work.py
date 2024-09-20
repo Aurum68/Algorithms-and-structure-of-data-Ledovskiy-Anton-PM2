@@ -66,6 +66,7 @@ while len(scob) != 0:
     if i == len(scob) and len(scob) != 0:
         quit("Невозможно посчитать - неверно расставлены скобки")
 
+'''https://en.m.wikipedia.org/wiki/Shunting_yard_algorithm'''
 hight_opers = '*/'
 down_opers = '-+'
 
