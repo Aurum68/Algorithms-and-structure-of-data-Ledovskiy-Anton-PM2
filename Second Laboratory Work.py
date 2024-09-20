@@ -13,7 +13,6 @@ def mathematics(a: str, b: str, operator: str):
     
 operators_butMinus = '+*/'
 operators = '+-*/'
-nums = '0123456789'
 a = list(input("Введите арифметическое выражение (в конце =) "))
 
 if a[-1] != '=':
@@ -41,15 +40,15 @@ while i != len(a) - 1:
 
 i = 0
 while i != len(a) - 1:
-    if a[i] in nums and a[i+1] in nums:
+    try:
+        p = int(a[i])
+        k = int(a[i+1])
         a[i] = a[i] + a[i+1]
         a.pop(i+1)
-    else:
+    except:
         i += 1
 
 scob = [i for i in a if i in '()']
-# scob_index = [i for i in range(len(a)) if a[i] in '()']
-# scob_indexes = [[], []]
 open_scob_count = scob.count('(')
 close_scob_count = scob.count(')')
 
@@ -61,10 +60,6 @@ while len(scob) != 0:
     if (scob[i] == '(' and scob[i + 1] == ')'):
         scob.pop(i)
         scob.pop(i)
-        # scob_indexes[0].append(scob_index[i])
-        # scob_indexes[1].append(scob_index[i+1])
-        # scob_index.pop(i)
-        # scob_index.pop(i)
         i=0
     else:
         i+=1
