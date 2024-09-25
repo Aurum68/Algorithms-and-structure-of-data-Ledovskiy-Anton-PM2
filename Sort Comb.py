@@ -1,7 +1,7 @@
 import random
 
 a = [random.randint(-100, 101) for i in range(random.randint(10, 100))]
-print(a)
+print("Old: ", a)
 
 lenght = len(a)
 factor = 1.247
@@ -16,5 +16,5 @@ while gapFactor > 1:
             a[i], a[j] = a[j], a[i]
     gapFactor = gapFactor / factor
 
-print(a)
+print("New: ", a)
     
