@@ -76,6 +76,9 @@ def write_random_to_file(filename: str):
 
 # Пример использования:
 source_filename = 'external_test.txt'
+
+if not os.path.isdir('test_files'):
+    os.mkdir('test_files')
 write_random_to_file(f'test_files/{source_filename}')
 
 external_multi_phase_sort(f'test_files/{source_filename}', block_size=1000)
