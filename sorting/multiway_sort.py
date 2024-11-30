@@ -69,7 +69,7 @@ num_count = 1000000
 def write_random_to_file(filename: str):
     with open(f'{filename}', 'w') as file:
         for i in range(num_count):
-            if i < 9999:
+            if i < num_count - 1:
                 file.write(str(random.randint(100, 100000)) + '\n')
             else:
                 file.write(str(random.randint(100, 100000)))
