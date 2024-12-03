@@ -108,9 +108,9 @@ public class MyBinaryTree {
         }
     }
 
-    private String traversingString = "";
+    private String traversingStringByDepth = "";
     private Node traversingBinaryTreeInDepth(Node node){
-        this.traversingString += Integer.toString(node.value) + " ";
+        this.traversingStringByDepth += Integer.toString(node.value) + " ";
         if (node.left != null) {
             traversingBinaryTreeInDepth(node.left);
         }
@@ -120,9 +120,36 @@ public class MyBinaryTree {
         return node;
     }
 
-    public String getTraversingString(){ 
+    private String traversingStringCentrality = " ";
+    private Node traversingBinaryTreeCentrality(Node node){
+        if (node.left != null) {
+            traversingBinaryTreeCentrality(node.left);
+        }
+        this.traversingStringCentrality += Integer.toString(node.value) + " ";
+        if (node.right != null) {
+            traversingBinaryTreeCentrality(node.right);
+        }
+        return node;
+    }
+
+    private String traversingStringByEnd = " ";
+    private Node traversingBinaryTreeByEnd(Node node){
+        if (node.left != null) {
+            traversingBinaryTreeByEnd(node.left);
+        }
+        if (node.right != null) {
+            traversingBinaryTreeByEnd(node.right);
+        }
+        this.traversingStringByEnd += Integer.toString(node.value) + " ";
+        return node;
+    }
+
+    public String[] getTraversingString(){ 
         convertTreeStringToBinaryTree();
         traversingBinaryTreeInDepth(root);
-        return this.traversingString;
+        traversingBinaryTreeCentrality(root);
+        traversingBinaryTreeByEnd(root);
+        String[] result = {this.traversingStringByDepth, this.traversingStringCentrality, this.traversingStringByEnd};
+        return result;
     }
 }
